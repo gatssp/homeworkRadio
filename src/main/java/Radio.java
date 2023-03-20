@@ -1,18 +1,28 @@
 public class Radio {
+    private int maxStation = 10;
     private int currentVolume; //  текущая громкость
     private int currentStation; // теккущая радио станция
 
-    public int getCurrentVolume() { // получение данных "теккущая радио станция"
+    public Radio(int quantityStaition) {
+        maxStation = quantityStaition - 1;
+    }
+
+    public Radio() {
+
+    }
+
+
+    public int getCurrentVolume() { // получение данных "текущая громкость"
         return currentVolume;
     }
 
-    public int getCurrentStation() { // получение данных "текущая громкость"
+    public int getCurrentStation() { // получение данных "теккущая радио станция"
         return currentStation;
     }
 
     public void setCurrentVolume(int newCurrentVolume) { // менять данные "теккущая радио станция"
 
-        if (newCurrentVolume < 0 || newCurrentVolume > 10) {
+        if (newCurrentVolume < 0 || newCurrentVolume > 100) {
             return;
         }
         currentVolume = newCurrentVolume;
@@ -22,7 +32,7 @@ public class Radio {
         if (newCurrentStation < 0) {
             return;
         }
-        if (newCurrentStation > 9) {
+        if (newCurrentStation > maxStation) {
             return;
         }
 
@@ -40,7 +50,7 @@ public class Radio {
     }
 
     public void buttonNext() {
-        if (currentStation < 9) {
+        if (currentStation < maxStation) {
             currentStation = currentStation + 1;
         } else {
             currentStation = 0;
@@ -51,7 +61,7 @@ public class Radio {
         if (currentStation > 0) {
             currentStation = currentStation - 1;
         } else {
-            currentStation = 9;
+            currentStation = maxStation;
         }
     }
 }
