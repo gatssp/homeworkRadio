@@ -65,11 +65,11 @@ public class RadioTest {
     @Test // переключить радио станцию на следующую
     public void putOnNextRadioStation() {
         Radio radio = new Radio();
-        radio.setCurrentStation(1);
+        radio.setCurrentStation(5);
 
         radio.buttonNext();
 
-        int expected = 2;
+        int expected = 6;
         int actual = radio.getCurrentStation();
 
         Assertions.assertEquals(expected, actual);
